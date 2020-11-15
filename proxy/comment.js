@@ -16,10 +16,10 @@ exports.sendComment = function (data, opt, callback) {
         name,
         comments
     } = data
+    // 过滤
     let comment = new Comment({
         name,
         comments
     });
-    // 过滤
     comment.save(callback);
 };
