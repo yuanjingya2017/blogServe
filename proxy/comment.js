@@ -14,12 +14,30 @@ exports.sendComment = function (data, opt, callback) {
     console.log(data, '====Comment')
     const {
         name,
-        comments
+        comments,
+        articleId
     } = data
     // 过滤
     let comment = new Comment({
         name,
-        comments
+        comments,
+        articleId
     });
     comment.save(callback);
 };
+
+exports.getCommentList = function (data, opt, callback) {
+    console.log(data)
+    let query = Comment.find({
+        articleId: data
+    })
+    console.log(query, '====query')
+    query.exec(function (err, docs) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(docs, '====docs')
+            callback(null, docs)
+        }
+    })
+}
