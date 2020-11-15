@@ -1,5 +1,5 @@
 var models = require('../models');
-var Comment = models.Comment;
+var Comment    = models.Comment;
 
 /**
  * 根据关键字，获取一组用户
@@ -11,6 +11,15 @@ var Comment = models.Comment;
  * @param {Function} callback 回调函数
  */
 exports.sendComment = function (data, opt, callback) {
-    console.log(data)
-    Comment.save(data, opt, callback);
+    console.log(data, '====Comment')
+    const {
+        name,
+        comments
+    } = data
+    // 过滤
+    let comment = new Comment({
+        name,
+        comments
+    });
+    comment.save(callback);
 };
