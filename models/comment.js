@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var CommentSchema = new Schema({
     articleId:  String,
     name: String,
-    comments: [{ body: String, date: Date }],
+    comments: String,
     date: { type: Date, default: Date.now },
     email: String,
     commentsfor: String,
@@ -20,4 +20,4 @@ CommentSchema.pre('save', function(next){
     next();
 });
 
-mongoose.model('Comment', CommentSchema)
+exports.Comment = mongoose.model('Comment', CommentSchema)

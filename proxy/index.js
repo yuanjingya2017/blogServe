@@ -1,0 +1,1 @@
+exports.Comment = require('./comment');
