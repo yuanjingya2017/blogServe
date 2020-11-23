@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var commentRouter = require('./routes/comment');
+var burypointRouter = require('./routes/burypoint');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.all('*', function(req, res, next) {
 });
 app.use('/', indexRouter);
 app.use('/comment', commentRouter);
+app.use('/burypoint', burypointRouter);
 app.get("/news", function(req, res){
   res.status = 200
   let result = {

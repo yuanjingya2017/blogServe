@@ -4,8 +4,9 @@ var Schema = mongoose.Schema;
 var BurypointSchema = new Schema({
     guid:  String,
     url: String,
-    pv: 1,
-    uv: 1
+    pv: Number,
+    uv: Number,
+    date: Date
 });
 
 BurypointSchema.pre('save', function(next){
@@ -16,4 +17,4 @@ BurypointSchema.pre('save', function(next){
     next();
 });
 
-exports.Burypoint = mongoose.model('Comment', BurypointSchema)
+exports.Burypoint = mongoose.model('Burypoint', BurypointSchema)
